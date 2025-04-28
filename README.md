@@ -8,6 +8,7 @@ choco install kubernetes-helm
 ```
 helm create webapp1
 ```
+![webapp](./img/1%20helm%20create.jpg)
 
 
 # Follow along with the video
