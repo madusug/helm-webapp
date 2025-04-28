@@ -1,4 +1,8 @@
 
+# HELM
+
+For this project, I deployed a simple web application in a kubernetes cluster using Helm. I was able to utilize Helm charts to customize deployments with templates and values, installing and running helm and integrating helm in a basic ci/cd pipeline.
+
 # Install Helm
 ```
 choco install kubernetes-helm
