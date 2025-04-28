@@ -1,4 +1,9 @@
 
+# Install Helm
+```
+choco install kubernetes-helm
+```
+
 # Create the helmchart
 ```
 helm create webapp1
@@ -22,6 +27,8 @@ helm upgrade mywebapp-release webapp1/ --values mywebapp/values.yaml
 # Accessing it
 ```
 minikube tunnel
+servicename=$(k get service -l "app=myhelmapp" -o jsonpath="{.items[0].metadata.name}")
+kubectl port-forward service/myhelmapp 8888:80 --namespace default
 ```
 
 # Create dev/prod
