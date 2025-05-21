@@ -186,4 +186,37 @@ To see my helm releases in all namespaces:
 ```
 helm ls --all-namespaces
 ```
-I am also using this for Jenkins test.
+
+# Incorporating Jenkins - CI
+
+I created a Jenkinsfile:
+
+```
+pipeline {
+       agent any
+       stages {
+	   stage('Deploy with Helm') {
+	   steps {
+	   script {
+	   if (isUnix()) {
+		   sh '''
+			   helm upgrade \
+			   --install my-webapp \
+			   ./webapp1 \
+			   --namespace default
+		   '''
+	   } else {
+		   sh '''
+			   /c/ProgramData/chocolatey/bin/helm upgrade \
+			   --install my-webapp \
+			   ./webapp1 \
+			   --namespace default
+		   '''
+	   }
+	   "}
+      }
+    }
+  }
+}
+```
+
