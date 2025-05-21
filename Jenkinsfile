@@ -19,7 +19,7 @@ pipeline {
 			   --namespace default
 		   '''
 	   }
-	   "}
+	   }
       }
     }
   }
