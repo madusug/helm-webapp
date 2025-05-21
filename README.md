@@ -186,3 +186,4 @@ To see my helm releases in all namespaces:
 ```
 helm ls --all-namespaces
 ```
+I am also using this for Jenkins test.
