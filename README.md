@@ -213,7 +213,7 @@ pipeline {
 			   --namespace default
 		   '''
 	   }
-	   "}
+	   }
       }
     }
   }
