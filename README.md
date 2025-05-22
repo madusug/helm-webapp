@@ -193,30 +193,19 @@ I created a Jenkinsfile:
 
 ```
 pipeline {
-       agent any
-       stages {
-	   stage('Deploy with Helm') {
-	   steps {
-	   script {
-	   if (isUnix()) {
-		   sh '''
-			   helm upgrade \
-			   --install my-webapp \
-			   ./webapp1 \
-			   --namespace default
-		   '''
-	   } else {
-		   sh '''
-			   /c/ProgramData/chocolatey/bin/helm upgrade \
-			   --install my-webapp \
-			   ./webapp1 \
-			   --namespace default
-		   '''
-	   }
-	   }
-      }
+    agent {
+        docker {
+            image 'alpine/helm:latest'
+            args '-v /var/run/docker.sock:/var/run/docker.sock'
+        }
     }
-  }
+    stages {
+        stage('Deploy with Helm') {
+            steps {
+                sh 'helm upgrade --install my-webapp ./webapp1 --namespace default'
+            }
+        }
+    }
 }
 ```
 
