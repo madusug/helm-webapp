@@ -1,8 +1,8 @@
 pipeline {
     agent {
-        podman {
+        docker {
             image 'alpine/helm:latest'
-            args '-v /var/run/podman.sock:/var/run/podman.sock'
+            args '-v /var/run/docker.sock:/var/run/docker.sock'
         }
     }
     stages {
