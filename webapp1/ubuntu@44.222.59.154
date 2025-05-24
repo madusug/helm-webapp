@@ -1,7 +1,7 @@
 apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
 metadata:
-  name: jenkins-rolebinding
+  name: jenkins-helm-manager-binding
   namespace: default
 subjects:
 - kind: ServiceAccount
@@ -9,5 +9,5 @@ subjects:
   namespace: default
 roleRef:
   kind: Role
-  name: jenkins-role
+  name: helm-manager
   apiGroup: rbac.authorization.k8s.io
