@@ -16,11 +16,7 @@ spec:
     - cat
     tty: true
   - name: jnlp
-    image: jenkins/inbound-agent:3309.v27b_9314fd1a_4-1
-    resources:
-      requests:
-        memory: "256Mi"
-        cpu: "100m"
+    image: jenkins/inbound-agent:latest
 """
         }
     }
@@ -34,3 +30,5 @@ spec:
         }
     }
 }
+// This Jenkinsfile uses a Kubernetes agent to run a Helm deployment.
+// It defines a pod with two containers: one for Helm and one for the Jenkins agent.
